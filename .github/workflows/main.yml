@@ -25,7 +25,7 @@ jobs:
         RESOURCE_GROUP: rg-githubdeploy
         RESOURCE_GROUP_REGION: ukwest
         SERVER_NAME: githubactions
-        ADMIN_LOGIN: sarah
+        ADMIN_LOGIN: tushar
       run: >
         powershell -command "& '${{ env.OUTPUT_PATH }}\IaC\AzCLI\vmcreation.ps1'" 
         -servicePrincipal ${{ secrets.SERVICE_PRINCIPAL_APPID }}
