@@ -43,9 +43,9 @@ This is the main Infrastructure as Code script that provisions a Windows Virtual
 2. **Set Subscription**: Sets the target Azure subscription using `az account set`
 3. **Create Resource Group**: Creates a new resource group in the specified region using `az group create`
 4. **Create VM**: Provisions a Windows Server 2019 Datacenter VM using `az vm create` with:
-   - Windows Server 2019 Datacenter image
+   - Windows Server 2019 Datacenter image (`win2019datacenter`)
    - Specified administrator credentials
-   - Error handling for existing VMs
+   - Basic try-catch block to catch exceptions during VM creation
 
 ### GitHub Actions Workflows
 
@@ -60,7 +60,7 @@ Both workflows are nearly identical (with minor differences in admin username) a
 **Job: DeployVM**
 - Runs on: `windows-latest` runner
 - Steps:
-  1. **Checkout repo**: Uses `actions/checkout@v1` to clone the repository
+  1. **Checkout repo**: Uses `actions/checkout@v1` to clone the repository (Note: v1 is deprecated; consider updating to v3 or v4)
   2. **Look for ps1 file**: Lists contents of the IaC/AzCLI directory to verify script presence
   3. **Provision VM**: Executes the PowerShell script with parameters from:
      - GitHub Secrets (for sensitive data)
